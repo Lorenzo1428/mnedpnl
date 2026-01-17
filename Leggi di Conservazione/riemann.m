@@ -7,8 +7,8 @@ dx = 0.001;
 x = -1:dx:1;
 Nx = length(x);
 
-uL = 0.5;
-uR = 0.2;
+uL = 0.2;
+uR = 0.7;
 
 u0 = @(x) uL*(x < 0) + uR*(x >= 0);
 fb = @(u) 0.5*u.*u;
@@ -29,6 +29,8 @@ n = 0;
 p = plot(x,U);
 xlim([-1,1]);
 ylim([-1,2]);
+title("T")
+legend("soluzione")
 
 %upwind
 % while n < Nt
@@ -53,6 +55,7 @@ while n < Nt
     Us(I) = U(I) - lambda*(fb(U(R)) - fb(U(I)));
     U(I) = 0.5*(U(I) + Us(I)) - 0.5*lambda*(fb(Us(I)) - fb(Us(L)));
     p.YData = U;
+    title("T=" + n*dt);
     drawnow;
 end
 

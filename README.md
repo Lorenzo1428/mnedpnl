@@ -1,1 +1,1 @@
-# Numerical methods for non-linear partial differential equation
+# Numerical methods for non-linear partial differential equations
